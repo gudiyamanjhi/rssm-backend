@@ -43,8 +43,6 @@ const LoginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
         const existUser = await User.findOne({ email: email });
-        console.log(existUser);
-
         if (!existUser) {
             res.status(200).json({ message: "failed", status: false });
         }
@@ -54,7 +52,7 @@ const LoginUser = async (req, res) => {
         }
         res.status(200).json({ message: "success", status: true, user: existUser });
     } catch (error) {
-        res.json({ error: error, message: error })
+        res.json({ error: error, message: "Servor Errro" })
     }
 }
 
