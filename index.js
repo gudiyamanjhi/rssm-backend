@@ -10,7 +10,7 @@ const app = express();
 
 
 var corsOptions = {
-    origin: ['http://localhost:3000', 'https://rssm-frontend.vercel.app/login'],
+    origin: ['http://localhost:3000', 'https://rssm-frontend.vercel.app'],
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
