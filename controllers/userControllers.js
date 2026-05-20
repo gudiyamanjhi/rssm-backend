@@ -54,7 +54,7 @@ const LoginUser = async (req, res) => {
         }
         res.status(200).json({ message: "success", status: true, user: existUser });
     } catch (error) {
-        res.json({ error: error, message: "error in login" })
+        res.json({ error: error, message: error })
     }
 }
 
@@ -89,4 +89,4 @@ const UpadteProfile = async (req, res) => {
     }
 }
 
-module.exports = { SignupUser, LoginUser ,UpadteProfile };
+module.exports = { SignupUser, LoginUser, UpadteProfile };
