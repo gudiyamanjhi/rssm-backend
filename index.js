@@ -6,15 +6,17 @@ const fs = require("fs");
 const { buffer } = require("stream/consumers");
 const { type } = require("os");
 const { profile } = require("console");
-
-
-
-// const { type, status } = require("express/lib/response");
-
-// const { Schema } = require("mongoose")
 const app = express();
+
+
+var corsOptions = {
+    origin: ['http://localhost:3000', 'https://rssm-frontend.vercel.app/login'],
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+
 app.use(express.json());
-app.use(cors())
+app.use(cors(corsOptions))
 
 
 const storage = multer.diskStorage({
@@ -46,7 +48,7 @@ async function main() {
 
 app.use("/users", require("./routes/userRoutes"))
 app.use("/student", upload.single('image'), require("./routes/studentRoutes"))
-app.use("/teacher", upload.single('image'),require("./routes/teacherRoutes"))
+app.use("/teacher", upload.single('image'), require("./routes/teacherRoutes"))
 
 
 // ****************************Apply***************************

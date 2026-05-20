@@ -40,10 +40,8 @@ const SignupUser = async (req, res) => {
 
 
 const LoginUser = async (req, res) => {
-    console.log(req.body);
     try {
         const { email, password } = req.body;
-
         const existUser = await User.findOne({ email: email });
         console.log(existUser);
 
